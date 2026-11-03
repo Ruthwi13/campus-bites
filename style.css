@@ -1,0 +1,767 @@
+/* ==========================================
+   CAMPUS BITES STYLESHEET
+   Change the colours here to restyle the site.
+   ========================================== */
+
+:root {
+  --leaf: #1f5c3f;
+  --leaf-dark: #154630;
+  --turmeric: #f2b632;
+  --chilli: #b92c1c;
+  --page: #f8faf3;
+  --surface: #ffffff;
+  --text: #17231c;
+  --muted: #526158;
+  --line: #cfd9cc;
+  --tile: #fff0c7;
+  --heading-font: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --body-font: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+}
+
+/* Dark mode: JavaScript adds the "dark" class to the body */
+body.dark {
+  --page: #10251b;
+  --surface: #183326;
+  --text: #f3f6ec;
+  --muted: #bdcbbf;
+  --line: #3d5a4a;
+  --tile: #29483a;
+  --chilli: #ff9c8f;
+}
+
+/* ---------- Basics ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading-font);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--chilli);
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -5rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--turmeric);
+  color: #17231c;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Header and navigation ---------- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  background: var(--leaf);
+  color: #ffffff;
+}
+
+.logo {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-nav a {
+  padding: 0.25rem 0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--turmeric);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.nav-toggle,
+.theme-toggle {
+  padding: 0.4rem 0.75rem;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-yellow {
+  background: var(--turmeric);
+  color: #17231c;
+}
+
+.button-green {
+  background: var(--leaf);
+  color: #ffffff;
+}
+
+body.dark .button-green {
+  background: var(--turmeric);
+  color: #17231c;
+}
+
+.button-full {
+  width: 100%;
+}
+
+.text-button {
+  display: block;
+  margin: 0.75rem auto 0;
+  border: 0;
+  background: none;
+  color: var(--chilli);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Home page ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding: clamp(2.5rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+  background: var(--leaf);
+  color: #ffffff;
+}
+
+.hero p {
+  max-width: 34rem;
+  font-size: 1.25rem;
+}
+
+.token {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 300px);
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #17231c;
+  text-align: center;
+  transform: rotate(3deg);
+  animation: print-token 0.7s ease-out;
+}
+
+/* The two circles make the token look like a torn paper stub */
+.token::before,
+.token::after {
+  content: "";
+  position: absolute;
+  top: 62%;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--leaf);
+}
+
+.token::before {
+  left: -14px;
+}
+
+.token::after {
+  right: -14px;
+}
+
+.token p {
+  margin: 0;
+}
+
+.hero .token-name {
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.hero .token-number {
+  color: var(--leaf);
+  font-family: var(--heading-font);
+  font-size: 7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero .token-label {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.token-order {
+  padding-top: 1rem;
+  border-top: 2px dashed #9aa89d;
+}
+
+.hero .token-order p {
+  display: flex;
+  justify-content: space-between;
+  max-width: none;
+  font-size: 1rem;
+}
+
+@keyframes print-token {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) rotate(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(3deg);
+  }
+}
+
+.section,
+.page {
+  width: min(100%, 1140px);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.section-intro {
+  margin-bottom: 2rem;
+  color: var(--muted);
+}
+
+.steps-section {
+  padding-top: 0;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  counter-reset: order-step;
+  list-style: none;
+}
+
+.steps li {
+  padding-top: 1rem;
+  border-top: 4px solid var(--turmeric);
+  counter-increment: order-step;
+}
+
+.steps li::before {
+  content: counter(order-step);
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--leaf);
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+body.dark .steps li::before {
+  color: var(--turmeric);
+}
+
+/* ---------- Food cards ---------- */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* The home page has 3 specials, so they stretch to fill the row */
+#specialsGrid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.food-photo {
+  display: block;
+  width: 100%;
+  height: 180px;
+  background: var(--tile);
+  object-fit: cover;
+}
+
+.food-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.food-details p {
+  flex: 1;
+  color: var(--muted);
+}
+
+.food-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.food-price {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.add-button {
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--leaf);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body.dark .add-button {
+  background: var(--turmeric);
+  color: #17231c;
+}
+
+/* ---------- Menu page ---------- */
+
+.menu-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 2px solid var(--muted);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-button {
+  padding: 0.55rem 1rem;
+  border: 2px solid var(--leaf);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-button.active {
+  background: var(--leaf);
+  color: #ffffff;
+}
+
+body.dark .category-button {
+  border-color: var(--turmeric);
+}
+
+body.dark .category-button.active {
+  background: var(--turmeric);
+  color: #17231c;
+}
+
+.results-text {
+  color: var(--muted);
+}
+
+/* ---------- Cart page ---------- */
+
+.receipt,
+.message-panel {
+  max-width: 680px;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-top: 8px solid var(--turmeric);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 2px 10px rgba(23, 35, 28, 0.12);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px dashed var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+th:last-child,
+td:last-child {
+  text-align: right;
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity button {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--muted);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bill {
+  margin: 1rem 0 1.5rem;
+}
+
+.bill div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+}
+
+.bill dd {
+  margin: 0;
+}
+
+.bill-total {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem !important;
+  border-top: 2px solid var(--text);
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.confirmed-token {
+  margin: 0;
+  color: var(--leaf);
+  font-family: var(--heading-font);
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+body.dark .confirmed-token {
+  color: var(--turmeric);
+}
+
+/* ---------- Booking page ---------- */
+
+.form-page {
+  max-width: 680px;
+}
+
+.form-page .section-intro {
+  margin-bottom: 1.5rem;
+}
+
+.form-page .message-panel {
+  margin-top: 0;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 1.1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.error-message {
+  min-height: 1.5em;
+  margin: 0.2rem 0 0;
+  color: var(--chilli);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+input.invalid {
+  border-color: var(--chilli);
+}
+
+/* ---------- About page ---------- */
+
+.about-page h1 {
+  max-width: 16ch;
+}
+
+.lead {
+  max-width: 42rem;
+  font-size: 1.25rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plain-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+address {
+  font-style: normal;
+}
+
+.faq-section {
+  max-width: 760px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1rem 2rem 1rem 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-answer p {
+  color: var(--muted);
+}
+
+/* ---------- Footer and pop-up message ---------- */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 2rem clamp(1rem, 5vw, 4rem);
+  background: var(--leaf-dark);
+  color: #ffffff;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 50;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  padding: 0.7rem 1.1rem;
+  border-radius: 6px;
+  background: #17231c;
+  color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Tablets and phones ---------- */
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-header {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .site-nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .hero,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    display: block;
+  }
+}
+
+/* Turns off movement for people who ask their device to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .token {
+    animation: none;
+  }
+
+  .button,
+  .toast {
+    transition: none;
+  }
+}

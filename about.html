@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Campus Bites, its opening hours, and common questions.">
+  <title>Campus Bites | About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">Campus Bites</a>
+    <button id="menuToggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav id="siteNav" class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="booking.html">Book a table</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+      <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+    </nav>
+  </header>
+
+  <main id="main" class="page about-page">
+    <h1>A café built around the class timetable</h1>
+    <p class="lead">Campus Bites serves quick, simple food for students with short breaks. You order ahead, skip the long queue, and collect your food when it's ready.</p>
+
+    <div class="about-grid">
+      <section>
+        <h2>Opening hours</h2>
+        <ul class="plain-list">
+          <li><span>Breakfast</span><span>8:00 AM to 11:00 AM</span></li>
+          <li><span>Lunch</span><span>12:00 PM to 3:00 PM</span></li>
+          <li><span>Snacks and drinks</span><span>All day until 9:00 PM</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact us</h2>
+        <address>
+          Ground Floor, Student Centre<br>
+          Example University<br>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </address>
+      </section>
+    </div>
+
+    <section class="faq-section">
+      <h2>Common questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Can I order without creating an account?</button>
+        <div class="faq-answer" hidden>
+          <p>Yes. Add your food to the cart and place your order. No account is needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">How long does an order take?</button>
+        <div class="faq-answer" hidden>
+          <p>Most orders are ready in 10 to 15 minutes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Can I bring a large group?</button>
+        <div class="faq-answer" hidden>
+          <p>Yes. You can book a table for up to 10 people on the booking page.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Campus Bites</strong> serves fresh pure veg food for students, every day.</p>
+    <p>Open every day, 8:00 AM to 9:00 PM</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

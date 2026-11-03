@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse the Campus Bites menu of snacks, meals, and drinks.">
+  <title>Campus Bites | Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">Campus Bites</a>
+    <button id="menuToggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav id="siteNav" class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="menu.html" aria-current="page">Menu</a>
+      <a href="booking.html">Book a table</a>
+      <a href="about.html">About</a>
+      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+      <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <h1>Our menu</h1>
+    <p class="section-intro">Search for a dish or choose a category.</p>
+
+    <div class="menu-tools">
+      <div class="search-box">
+        <label for="searchInput">Search the menu</label>
+        <input id="searchInput" type="search" placeholder="Try dosa or coffee">
+      </div>
+
+      <div class="category-buttons" aria-label="Filter by category">
+        <button class="category-button active" type="button" data-category="All" aria-pressed="true">All</button>
+        <button class="category-button" type="button" data-category="Snacks" aria-pressed="false">Snacks</button>
+        <button class="category-button" type="button" data-category="Meals" aria-pressed="false">Meals</button>
+        <button class="category-button" type="button" data-category="Drinks" aria-pressed="false">Drinks</button>
+      </div>
+    </div>
+
+    <p id="menuResults" class="results-text" aria-live="polite"></p>
+    <!-- JavaScript fills this grid with the dishes -->
+    <div id="menuGrid" class="food-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Campus Bites</strong> serves fresh pure veg food for students, every day.</p>
+    <p>Open every day, 8:00 AM to 9:00 PM</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

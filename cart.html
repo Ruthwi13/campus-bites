@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your Campus Bites order.">
+  <title>Campus Bites | Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">Campus Bites</a>
+    <button id="menuToggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav id="siteNav" class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="booking.html">Book a table</a>
+      <a href="about.html">About</a>
+      <a href="cart.html" aria-current="page">Cart (<span class="cart-count">0</span>)</a>
+      <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <h1>Your order</h1>
+
+    <div id="cartSection" class="receipt" hidden>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <!-- JavaScript adds one table row for each item -->
+          <tbody id="cartItems"></tbody>
+        </table>
+      </div>
+
+      <dl class="bill">
+        <div><dt>Subtotal</dt><dd id="subtotal">₹0</dd></div>
+        <div><dt>GST (5%)</dt><dd id="gst">₹0</dd></div>
+        <div class="bill-total"><dt>Total</dt><dd id="total">₹0</dd></div>
+      </dl>
+
+      <button id="placeOrder" class="button button-green button-full" type="button">Place order</button>
+      <button id="clearCart" class="text-button" type="button">Empty cart</button>
+    </div>
+
+    <div id="emptyCart" class="message-panel" hidden>
+      <h2>Your cart is empty</h2>
+      <p>Add a dish from the menu to start your order.</p>
+      <a class="button button-green" href="menu.html">Go to menu</a>
+    </div>
+
+    <div id="orderConfirmed" class="message-panel" tabindex="-1" hidden>
+      <h2>Order placed</h2>
+      <p>Your token number is</p>
+      <p id="tokenNumber" class="confirmed-token"></p>
+      <p>Show this number at the counter. This is a demo, so no real order was sent.</p>
+      <a class="button button-green" href="menu.html">Order something else</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Campus Bites</strong> serves fresh pure veg food for students, every day.</p>
+    <p>Open every day, 8:00 AM to 9:00 PM</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
